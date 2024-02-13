@@ -1,10 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-def process_tuple(m):
-    n = tuple(i * m_i if i % 2 != 0 else m_i / i for i, m_i in enumerate(m, 1))
-    return n
+def transform_tuple(t):
+    result = ()
+    for i, m in enumerate(t):
+        if i % 2 != 0:
+            n = i * m
+        else:
+            n = m / i
+        result += (n,)
+    return result
 
-tuple_m = (1, 2, 3, 4, 5)
-tuple_n = process_tuple(tuple_m)
-print(tuple_n)
+if __name__ == '__main__':
+    # Пример использования
+    my_tuple = (1, 2, 3, 4, 5)
+    transformed_tuple = transform_tuple(my_tuple)
+    print(transformed_tuple)
