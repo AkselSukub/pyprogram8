@@ -7,7 +7,10 @@ def transform_tuple(t):
         if i % 2 != 0:
             n = i * m
         else:
-            n = m / i
+            if i != 0:  # Добавляем проверку, чтобы избежать деления на 0
+                n = m / i
+            else:
+                n = 0  # В случае деления на 0 присваиваем 0
         result += (n,)
     return result
 
